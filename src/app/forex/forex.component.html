@@ -1,0 +1,18 @@
+Enter Source: <input type="text" [(ngModel)]="src">
+<button type="submit" (click)="getRates()">Submit</button>
+<table>
+  <thead>
+    <td>Target Currency</td>
+    <td>Rate</td>
+    <td>Amount</td>
+    <td>Converted</td>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let curr of keys; let i = index;">
+      <td> {{curr}} </td>
+      <td>{{rates[curr]}}</td>
+      <td> <input type="number" value="{{map[curr]?.src}}" id="{{i}}" (input)="getConvert($event,curr)"> </td>
+      <td><input type="number" value="{{map[curr]?.target}}" (input)="getConvertFromTarget($event,curr)"></td>
+    </tr>
+  </tbody>
+</table>
